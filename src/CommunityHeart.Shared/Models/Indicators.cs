@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace CommunityHeart.Models
+{
+    public class Indicators
+    {
+        HeartRateIndicator HeartRate { get; set; }
+    }
+}

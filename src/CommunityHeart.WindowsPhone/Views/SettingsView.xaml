@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="CommunityHeart.Views.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CommunityHeart.WindowsPhone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding ViewModel, Mode=TwoWay, RelativeSource={RelativeSource Mode=Self}}"
+    >
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Label="Save" Command="{Binding SaveCommand}" Icon="Save" />
+        </CommandBar>
+    </Page.BottomAppBar>
+    <Grid Margin="12,0,12,0">
+        <StackPanel>
+            <TextBlock Text="Settings" Style="{StaticResource HeaderTextBlockStyle}" />
+            <TextBlock Text="Heart rate" Style="{StaticResource GroupHeaderTextBlockStyle}" />
+            <TextBox  Header="Min" Text="{Binding HeartRateMin, Mode=TwoWay}" />
+            <TextBox Header="Max" Text="{Binding HeartRateMax, Mode=TwoWay}" />
+            <TextBlock Height="200"/>
+        </StackPanel>
+    </Grid>
+</Page>
