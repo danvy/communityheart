@@ -1,4 +1,5 @@
-﻿using CommunityHeart.Services;
+﻿using CommunityHeart.Models;
+using CommunityHeart.Services;
 using CommunityHeart.Tools;
 using Microsoft.Band;
 using System;
@@ -21,6 +22,7 @@ namespace CommunityHeart.ViewModels
         private bool _started;
         private ICommand _startStopCommand;
         private ICommand _settingsCommand;
+        private Timer _timer;
         public MainViewModel()
         {
         }
@@ -41,6 +43,11 @@ namespace CommunityHeart.ViewModels
                     _client.SensorManager.HeartRate.ReadingChanged += HeartRate_ReadingChanged;
                 }
             }
+        }
+
+        private async void TimerCallback(object state)
+        {
+            await IoC.Instance.Resolve<IDataService>().SendDataAsync(new DeviceData() { HeartRate = this.HeartRate });
         }
         public ICommand StartStopCommand
         {
@@ -89,10 +96,17 @@ namespace CommunityHeart.ViewModels
                 return;
             if (_client.SensorManager.HeartRate.IsSupported)
                 await _client.SensorManager.HeartRate.StartReadingsAsync(new CancellationToken());
+            var init = new DeviceInit();
+            init.HeartRateMin = SettingsViewModel.Instance.HeartRateMin;
+            init.HeartRateMax = SettingsViewModel.Instance.HeartRateMax;
+            await IoC.Instance.Resolve<IDataService>().InitAsync(init);
+            _timer = new Timer(new TimerCallback(TimerCallback), null, 0, 1000);
             Started = true;
         }
         public async Task Stop()
         {
+            _timer.Dispose();
+            _timer = null;
             if (_client == null)
                 return;
             if (_client.SensorManager.HeartRate.IsSupported)
