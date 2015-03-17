@@ -37,6 +37,14 @@ namespace CommunityHeart.Test
             Assert.IsTrue(await service.SetValuesAsync(values));
         }
         [TestMethod]
+        public async Task SetValuesMultiple()
+        {
+            for(var i = 0; i < 10; i++)
+            {
+                await SetValues();
+            }
+        }
+        [TestMethod]
         public async Task GetIndicators()
         {
             var service = IoC.Instance.Resolve<IDataService>();

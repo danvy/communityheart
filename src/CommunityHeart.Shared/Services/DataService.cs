@@ -19,10 +19,10 @@ namespace CommunityHeart.Services
             var response = await client.PutAsync(_serverUrl + "setconfig", content);
             return response.IsSuccessStatusCode;
         }
-        public async Task<bool> SetValuesAsync(DeviceValues data)
+        public async Task<bool> SetValuesAsync(DeviceValues values)
         {
             var client = new HttpClient();
-            var json = Json.Serialize(data);
+            var json = Json.Serialize(values);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await client.PutAsync(_serverUrl + "setvalues", content);
             return response.IsSuccessStatusCode;
