@@ -11,10 +11,10 @@ namespace CommunityHeart.Services
     public class DataService : IDataService
     {
         private string _serverUrl = "http://demoiotcommu.azure-mobile.net/api/";
-        public async Task<bool> SetConfigAsync(DeviceConfig init)
+        public async Task<bool> SetConfigAsync(DeviceConfig config)
         {
             var client = new HttpClient();
-            var json = Json.Serialize(init);
+            var json = Json.Serialize(config);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await client.PutAsync(_serverUrl + "setconfig", content);
             return response.IsSuccessStatusCode;

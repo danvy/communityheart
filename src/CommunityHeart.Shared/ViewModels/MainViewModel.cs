@@ -24,6 +24,7 @@ namespace CommunityHeart.ViewModels
         private ICommand _startStopCommand;
         private ICommand _settingsCommand;
         private Timer _timer;
+        private bool _heartBeating;
         public MainViewModel()
         {
         }
@@ -48,6 +49,11 @@ namespace CommunityHeart.ViewModels
 
         private async void TimerCallback(object state)
         {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                HeartBeating = _heartTimeStamp > DateTime.UtcNow.AddSeconds(-3);
+            });
             await IoC.Instance.Resolve<IDataService>().SetValuesAsync(new DeviceValues() { HeartRate = this.HeartRate });
         }
         public ICommand StartStopCommand
@@ -120,7 +126,10 @@ namespace CommunityHeart.ViewModels
             {
                 _heartTimeStamp = e.SensorReading.Timestamp;
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                () => { HeartRate = e.SensorReading.HeartRate; });                
+                () =>
+                {
+                    HeartRate = e.SensorReading.HeartRate;
+                });
             }
         }
         public int HeartRate
@@ -141,7 +150,14 @@ namespace CommunityHeart.ViewModels
         {
             get
             {
-                return _heartTimeStamp < DateTime.UtcNow.AddSeconds(3);
+                return _heartBeating;
+            }
+            set
+            {
+                if (value == _heartBeating)
+                    return;
+                _heartBeating = value;
+                RaisePropertyChanged();
             }
         }
     }

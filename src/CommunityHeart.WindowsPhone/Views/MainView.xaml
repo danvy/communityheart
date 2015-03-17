@@ -29,7 +29,7 @@
     </Page.Resources>
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarToggleButton Command="{Binding StartStopCommand}" Icon="Play"/>
+            <AppBarToggleButton Command="{Binding StartStopCommand}" Icon="Play" Label="Start/Stop"/>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="Settings..." Command="{Binding SettingsCommand}" />
             </CommandBar.SecondaryCommands>

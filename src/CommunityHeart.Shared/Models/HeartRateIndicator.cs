@@ -10,6 +10,6 @@ namespace CommunityHeart.Models
     {
         LowRate = 1,
         NormalRate = 2,
-        HightRate = 3
+        HighRate = 3
     }
 }

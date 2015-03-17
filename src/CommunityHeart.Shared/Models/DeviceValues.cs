@@ -10,7 +10,7 @@ namespace CommunityHeart.Models
     [DataContract]
     public class DeviceValues
     {
-        [DataMember(Name="bpm")]
+        [DataMember(Name="heartRate")]
         public int HeartRate { get; set; }
     }
 }
