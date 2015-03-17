@@ -8,8 +8,8 @@ namespace CommunityHeart.Services
 {
     public interface IDataService
     {
-        Task InitAsync(DeviceInit init);
-        Task SendDataAsync(DeviceData data);
+        Task<bool> SetConfigAsync(DeviceConfig config);
+        Task<bool> SetValuesAsync(DeviceValues values);
         Task<Indicators> GetIndicatorsAsync();
     }
 }

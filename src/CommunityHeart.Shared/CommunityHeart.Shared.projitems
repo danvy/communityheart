@@ -9,8 +9,8 @@
     <Import_RootNamespace>CommunityHeart.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Models\DeviceData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\DeviceInit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DeviceValues.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DeviceConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HeartRateIndicator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Indicators.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataService.cs" />

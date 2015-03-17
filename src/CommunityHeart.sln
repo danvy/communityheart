@@ -9,10 +9,15 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CommunityHeart.Shared", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityHeart.Netduino", "CommunityHeart.Netduino\CommunityHeart.Netduino.csproj", "{7D6BD270-F982-4F5C-8679-1DC5B4EE8EF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityHeart.Test", "CommunityHeart.Test\CommunityHeart.Test.csproj", "{1689699F-2F4E-4DF8-9E81-2F520311472E}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CommunityHeart.WebAPI", "CommunityHeart.WebAPI\CommunityHeart.WebAPI.njsproj", "{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		CommunityHeart.Shared\CommunityHeart.Shared.projitems*{508ef3fe-42ac-42c9-8e14-f3ccb89e0bfb}*SharedItemsImports = 4
 		CommunityHeart.Shared\CommunityHeart.Shared.projitems*{67002a14-6d2f-48f3-b66d-e2898f4d835e}*SharedItemsImports = 13
+		CommunityHeart.Shared\CommunityHeart.Shared.projitems*{1689699f-2f4e-4df8-9e81-2f520311472e}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +56,22 @@ Global
 		{7D6BD270-F982-4F5C-8679-1DC5B4EE8EF9}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{7D6BD270-F982-4F5C-8679-1DC5B4EE8EF9}.Release|ARM.ActiveCfg = Release|Any CPU
 		{7D6BD270-F982-4F5C-8679-1DC5B4EE8EF9}.Release|x86.ActiveCfg = Release|Any CPU
+		{1689699F-2F4E-4DF8-9E81-2F520311472E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1689699F-2F4E-4DF8-9E81-2F520311472E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1689699F-2F4E-4DF8-9E81-2F520311472E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{1689699F-2F4E-4DF8-9E81-2F520311472E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1689699F-2F4E-4DF8-9E81-2F520311472E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1689699F-2F4E-4DF8-9E81-2F520311472E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1689699F-2F4E-4DF8-9E81-2F520311472E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{1689699F-2F4E-4DF8-9E81-2F520311472E}.Release|x86.ActiveCfg = Release|Any CPU
+		{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A9B31BE1-AB3D-45D3-90BD-AB2EA8669AB1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

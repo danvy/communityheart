@@ -1,4 +1,5 @@
-﻿using CommunityHeart.Models;
+﻿#if NETFX_CORE
+using CommunityHeart.Models;
 using CommunityHeart.Services;
 using CommunityHeart.Tools;
 using Microsoft.Band;
@@ -47,7 +48,7 @@ namespace CommunityHeart.ViewModels
 
         private async void TimerCallback(object state)
         {
-            await IoC.Instance.Resolve<IDataService>().SendDataAsync(new DeviceData() { HeartRate = this.HeartRate });
+            await IoC.Instance.Resolve<IDataService>().SetValuesAsync(new DeviceValues() { HeartRate = this.HeartRate });
         }
         public ICommand StartStopCommand
         {
@@ -96,10 +97,10 @@ namespace CommunityHeart.ViewModels
                 return;
             if (_client.SensorManager.HeartRate.IsSupported)
                 await _client.SensorManager.HeartRate.StartReadingsAsync(new CancellationToken());
-            var init = new DeviceInit();
+            var init = new DeviceConfig();
             init.HeartRateMin = SettingsViewModel.Instance.HeartRateMin;
             init.HeartRateMax = SettingsViewModel.Instance.HeartRateMax;
-            await IoC.Instance.Resolve<IDataService>().InitAsync(init);
+            await IoC.Instance.Resolve<IDataService>().SetConfigAsync(init);
             _timer = new Timer(new TimerCallback(TimerCallback), null, 0, 1000);
             Started = true;
         }
@@ -146,3 +147,4 @@ namespace CommunityHeart.ViewModels
     }
 
 }
+#endif

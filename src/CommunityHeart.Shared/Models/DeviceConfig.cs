@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommunityHeart.Models
 {
-    public class DeviceInit
+    public class DeviceConfig
     {
         public int HeartRateMax { get; set; }
         public int HeartRateMin { get; set; }

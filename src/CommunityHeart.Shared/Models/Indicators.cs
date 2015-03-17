@@ -7,6 +7,7 @@ namespace CommunityHeart.Models
 {
     public class Indicators
     {
-        HeartRateIndicator HeartRate { get; set; }
+        public int HeartRate { get; set; }
+        public HeartRateIndicator HeartRateIndicator { get; set; }
     }
 }

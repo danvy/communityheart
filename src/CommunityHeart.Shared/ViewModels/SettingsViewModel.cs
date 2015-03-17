@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+#if NETFX_CORE
 using Windows.Storage;
-
+#endif
 namespace CommunityHeart.ViewModels
 {
     public class SettingsViewModel : ViewModelBase
@@ -56,12 +57,15 @@ namespace CommunityHeart.ViewModels
         }
         public void Save()
         {
+#if NETFX_CORE
             var settings = ApplicationData.Current.LocalSettings;
             settings.Values["HeartRateMin"] = HeartRateMin;
             settings.Values["HeartRateMax"] = HeartRateMax;
+#endif
         }
         public void Load()
         {
+#if NETFX_CORE
             var settings = ApplicationData.Current.LocalSettings;
             if (settings.Values.ContainsKey("HeartRateMin"))
             {
@@ -71,6 +75,7 @@ namespace CommunityHeart.ViewModels
             {
                 HeartRateMin = (int)settings.Values["HeartRateMax"];
             }
+#endif
         }
     }
 }

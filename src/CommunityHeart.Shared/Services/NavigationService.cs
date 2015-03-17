@@ -1,8 +1,8 @@
-﻿using System;
+﻿#if NETFX_CORE
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI.Xaml;
-
 namespace CommunityHeart.Services
 {
     public class NavigationService : INavigationService
@@ -31,3 +31,4 @@ namespace CommunityHeart.Services
        }
     }
 }
+#endif
